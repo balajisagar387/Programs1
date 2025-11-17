@@ -1,0 +1,8 @@
+# when u create replicaset then u dont need to create separete pod file
+# kubectl rollout status deploy or deployment queue
+# kubecl rollout history deploy queue
+# kubectl rollout undo deploy queue --to-revision=2
+# default it will save 10 revesions, but the thingis that these roll backs dont reflect in the .yaml file 
+# this is bad becaseue we want to be descritpitve aboute this
+# use rollout for emergency purpose
+# default deployment if u canged img name and thats incorrent it will not be affected by it becaude deployment check for health checks

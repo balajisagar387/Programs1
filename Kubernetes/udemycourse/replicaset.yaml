@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplicaset
+  labels:
+    app: queue
+    key: value
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: queue
+  template:
+    metadata:
+      name: queue 
+      labels:
+        app: queue
+        releaase: '0'
+
+    spec:
+      containers:
+      - name: webapp-container
+        image: richardchesterwood/k8s-fleetman-queue:release1
+
+
+
+
+---
+# documenta separator
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webappv1
+  labels:
+    app: webapp
+    releaase: '1'
+
+spec:
+  containers:
+  - name: webapp-container
+    image: richardchesterwood/k8s-fleetman-webapp-angular:release0-5
+
+
