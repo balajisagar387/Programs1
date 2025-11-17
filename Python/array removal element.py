@@ -64,3 +64,5 @@ def remove_element_swap(nums, val):
 k1 = remove_element_swap(nums, val)
 print("k =", k)
 print("nums =", nums[:k1], "+ remaining ignored Approach 2: Swap with Last (Order Not Important)")
+
+print("Both approaches are O(n) time and O(1) space, but Approach 1 is simpler and more intuitive.")
