@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-deployment  
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: queue  
+  template:
+    metadata:
+      labels:
+        app: queue  
+    spec:
+      containers:
+      - name: queue
+        image: richardchesterwood/k8s-fleetman-queue:release1
+       
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: position-deployment  
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: position  
+  template:
+    metadata:
+      labels:
+        app: position  
+    spec:
+      containers:
+      - name: positionweb
+        image: richardchesterwood/k8s-fleetman-position-simulator:release1
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: production-microservices
